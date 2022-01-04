@@ -1,7 +1,7 @@
 import * as plotter from './plotter';
 import * as values from './values';
 
-const drawConfig = { pointCount: 100, from: 0, to: 1 };
+const drawConfig = { pointCount: 100, from: 0, to: 5 };
 const drawContext = plotter.initialize("chart", drawConfig);
 
 const valueGenerator = values.generator();

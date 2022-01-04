@@ -40,6 +40,6 @@ if (!fs.existsSync(sourceFileName)) exitWithMessage(`File ${sourceFileName} does
 const destFile = tryReadFile(destFileName);
 const sourceFile = tryReadFile(sourceFileName);
 
-const processedDestFile = destFile.replace(substitutionMarker, sourceFile);
+const processedDestFile = destFile.replace(substitutionMarker, sourceFile.trim());
 
 tryWriteFile(destFileName, processedDestFile);
