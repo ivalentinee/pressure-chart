@@ -3,8 +3,8 @@ import * as plotter from './plotter';
 const httpRequestTimeoutOffset = 10;
 
 const run = function(config) {
-  const {id, url, timeout, pointCount, from, to} = config;
-  const plotterConfig = {pointCount, from, to};
+  const {id, url, timeout, height, pointCount, from, to} = config;
+  const plotterConfig = {height, pointCount, from, to};
 
   const plotterContext = plotter.initialize(id, plotterConfig);
   setInterval(() => fetchAndDisplayData(url, timeout, plotterContext), timeout);

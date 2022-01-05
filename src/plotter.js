@@ -9,16 +9,16 @@ const defaultColors = {
   error: "red",
 };
 
-const initialize = function(canvasID, drawConfig) {
-  const { canvas, width, height } = putCanvas(canvasID);
+const initialize = function(canvasID, config) {
+  const { canvas, width, height } = putCanvas(canvasID, config.height);
   const ctx = canvas.getContext("2d");
-  const abscissaPoints = buildAbscissaPoints(width, height, drawConfig.pointCount);
+  const abscissaPoints = buildAbscissaPoints(width, height, config.pointCount);
 
   const colors = {
-    graph: drawConfig.graphColor || defaultColors.graph,
-    background: drawConfig.backgroundColor || defaultColors.background,
-    grid: drawConfig.gridColor || defaultColors.grid,
-    error: drawConfig.errorColor || defaultColors.error,
+    graph: config.graphColor || defaultColors.graph,
+    background: config.backgroundColor || defaultColors.background,
+    grid: config.gridColor || defaultColors.grid,
+    error: config.errorColor || defaultColors.error,
   };
 
   const context = {
@@ -26,9 +26,9 @@ const initialize = function(canvasID, drawConfig) {
     width,
     height,
     abscissaPoints,
-    pointCount: drawConfig.pointCount,
-    from: drawConfig.from,
-    to: drawConfig.to,
+    pointCount: config.pointCount,
+    from: config.from,
+    to: config.to,
     colors: colors,
   };
 

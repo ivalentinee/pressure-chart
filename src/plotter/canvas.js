@@ -1,10 +1,9 @@
-const putCanvas = function(canvasID) {
+const putCanvas = function(canvasID, height) {
   let container = document.getElementById("charts");
   let canvas = document.createElement("canvas");
   container.appendChild(canvas);
 
   const width = window.screen.width;
-  const height = 450;
 
   canvas.setAttribute('width', width);
   canvas.setAttribute('height', height);
