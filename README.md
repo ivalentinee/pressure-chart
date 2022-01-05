@@ -8,6 +8,7 @@ $ docker-compose build
 ## Тестовый запуск
 - Собираем: `docker-compose run --rm app make`
 - Запускаем: `docker-compose run --rm --service-ports app make serve`
+- [Открываем](http://localhost:8000/)
 
 ## Сборка внутри докера
 `docker-compose run --rm app make release`

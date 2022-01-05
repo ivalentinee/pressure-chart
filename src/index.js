@@ -1,6 +1,7 @@
 import * as visualizer from './visualizer';
+import * as buttons from './buttons';
 
-const visualizerConfig = {
+visualizer.add({
   id: 'pressure-chart',
   url: '/data',
   timeout: 50,
@@ -8,6 +9,11 @@ const visualizerConfig = {
   pointCount: 100,
   from: 0,
   to: 5
-};
+});
 
-visualizer.run(visualizerConfig);
+buttons.add({
+  id: 'null-button',
+  text: 'NULL',
+  method: 'POST',
+  url: '/null',
+});

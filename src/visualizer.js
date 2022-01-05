@@ -2,7 +2,7 @@ import * as plotter from './plotter';
 
 const httpRequestTimeoutOffset = 10;
 
-const run = function(config) {
+const add = function(config) {
   const {id, url, timeout, height, pointCount, from, to} = config;
   const plotterConfig = {height, pointCount, from, to};
 
@@ -36,4 +36,4 @@ const fetchAndDisplayData = function(url, timeout, plotterContext) {
   xhr.send();
 };
 
-export { run };
+export { add };
