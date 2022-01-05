@@ -1,5 +1,5 @@
-const fs = require('fs');
-const process = require('process');
+import * as fs from "fs";
+import * as process from "process";
 
 const exitWithMessage = function(message) {
   console.log(message);

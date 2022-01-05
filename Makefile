@@ -10,7 +10,7 @@ clean:
 
 .PHONY:serve
 serve:
-	esbuild src/index.js --bundle --outfile=build/index.js --serve --servedir=build
+	node test-server.js
 
 .PHONY:esbuild-dev
 esbuild-dev:

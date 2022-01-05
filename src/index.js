@@ -1,15 +1,12 @@
-import * as plotter from './plotter';
-import * as values from './values';
+import * as visualizer from './visualizer';
 
-const drawConfig = { pointCount: 100, from: 0, to: 5 };
-const drawContext = plotter.initialize("chart", drawConfig);
+const visualizerConfig = {
+  id: 'pressure-chart',
+  url: 'data',
+  timeout: 50,
+  pointCount: 100,
+  from: 0,
+  to: 5
+};
 
-const valueGenerator = values.generator();
-
-function drawEachSecond() {
-  const { value } = valueGenerator.next();
-  plotter.drawGraph(drawContext, value);
-  setTimeout(drawEachSecond, 50);
-}
-
-drawEachSecond();
+visualizer.run(visualizerConfig);

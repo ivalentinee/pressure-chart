@@ -1,23 +1,24 @@
-import { setSize } from './plotter/canvas';
+import { putCanvas } from './plotter/canvas';
 import * as grid from './plotter/grid';
 import * as points from './plotter/points';
 
 const defaultColors = {
   graph: "red",
   background: 'rgb(255, 246, 201)',
-  grid: 'black'
+  grid: 'black',
+  error: "red",
 };
 
 const initialize = function(canvasID, drawConfig) {
-  const canvas = document.getElementById(canvasID);
-  const { width, height } = setSize(canvas);
+  const { canvas, width, height } = putCanvas(canvasID);
   const ctx = canvas.getContext("2d");
   const abscissaPoints = buildAbscissaPoints(width, height, drawConfig.pointCount);
 
   const colors = {
     graph: drawConfig.graphColor || defaultColors.graph,
     background: drawConfig.backgroundColor || defaultColors.background,
-    grid: drawConfig.gridColor || defaultColors.grid
+    grid: drawConfig.gridColor || defaultColors.grid,
+    error: drawConfig.errorColor || defaultColors.error,
   };
 
   const context = {
@@ -46,6 +47,13 @@ const buildAbscissaPoints = function(width, height, pointCount) {
   return abscissaPoints;
 };
 
+const drawError = function(context) {
+  const { ctx, colors, width, height } = context;
+  ctx.font = "40px serif";
+  ctx.fillStyle = colors.error;
+  ctx.fillText("Error", 100, 50);
+};
+
 const drawGraph = function(context, values) {
   clear(context);
   grid.draw(context);
@@ -57,4 +65,4 @@ const clear = function(context) {
   ctx.clearRect(0, 0, ctx.width, ctx.height);
 };
 
-export { initialize, drawGraph };
+export { initialize, drawGraph, drawError };
